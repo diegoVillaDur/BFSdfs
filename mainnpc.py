@@ -1,7 +1,7 @@
 import time
 from DFSnpc import *
 from BFSnpc import *
-
+import tracemalloc
 
 print("\ninicio", encontrar_posicion("s"))
 print("Meta", encontrar_posicion(2), "\n")
@@ -9,6 +9,8 @@ print("Meta", encontrar_posicion(2), "\n")
 
 # --------------Buscar por BFS
 t_inicio = time.perf_counter()
+tracemalloc.start()
+
 if bfs():
     print("Camino encontrado por BFS:")
     for paso in bfs():
@@ -16,6 +18,10 @@ if bfs():
     print(f"Meta encontrada\nLongitud del camino: {len(bfs()) - 1} pasos")
 else:
     print("No se encontró un camino.")
+
+current, peak = tracemalloc.get_traced_memory()
+print(f"Uso actual: {current / 10**6} MB, Pico: {peak / 10**6} MB")
+tracemalloc.stop()
 t_fin = time.perf_counter()
 print("Tiempo:", t_fin - t_inicio)
 
@@ -23,7 +29,11 @@ print("Tiempo:", t_fin - t_inicio)
 print("\nCamino encontrado por DFS:")
 
 t_inicio = time.perf_counter()
+tracemalloc.start()
 camino_encontrado = dfs(laberinto, encontrar_posicion("s"), encontrar_posicion(2))
+current, peak = tracemalloc.get_traced_memory()
+print(f"Uso actual: {current / 10**6} MB, Pico: {peak / 10**6} MB")
+tracemalloc.stop()
 t_fin = time.perf_counter()
 
 print(f"Longitud del camino: {len(camino_encontrado) - 1} pasos")
