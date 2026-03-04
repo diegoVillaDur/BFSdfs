@@ -13,7 +13,7 @@ if bfs():
     print("Camino encontrado por BFS:")
     for paso in bfs():
         print(paso)
-    print(f"Meta encontrada\nLongitud del camino: {len(bfs()) - 1} pasos\n")
+    print(f"Meta encontrada\nLongitud del camino: {len(bfs()) - 1} pasos")
 else:
     print("No se encontró un camino.")
 t_fin = time.perf_counter()
