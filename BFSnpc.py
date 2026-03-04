@@ -6,8 +6,8 @@ def bfs():
     """
     Implementación del algoritmo BFS
     """
-    inicio = encontrar_posicion("S")
-    meta = encontrar_posicion("G")
+    inicio = encontrar_posicion("s")
+    meta = encontrar_posicion(2)
 
     # Cola para BFS: almacena (posición, camino recorrido)
     cola = deque()  # Crea una cola vacía donde se guardarán los estados por explorar.
