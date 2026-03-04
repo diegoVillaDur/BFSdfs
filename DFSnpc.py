@@ -14,9 +14,9 @@ def dfs(laberinto, inicio, meta):
 
         visitados.add((x, y))
 
-        print(f"Visitando: {(x, y)}")
+        print(f"{(x, y)}")
         if (x, y) == meta:
-            print("\nMeta encontrada")
+            print("Meta encontrada")
             return camino
 
         for dx, dy in movimientos:
